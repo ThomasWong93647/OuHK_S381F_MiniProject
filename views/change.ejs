@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body, html {
+  margin: 0;
+}
+h1
+{
+  margin: 0;
+}
+.image {
+  background-image: url("https://i.redd.it/17mxcmh443x51.png");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.gif {
+opacity: 0.5;
+}
+.bt {
+  background-color: #81f385;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  width: 40%;
+  opacity: 0.8;
+}
+
+.bt:hover {
+  opacity: 1;
+}
+
+</style>
+</head>
+<body>
+
+<div class="image">
+    <html>
+	<head>
+		<title>Modify Records</title>	
+	</head>
+	<body>
+			<h1>Modify Record</h1>
+			
+			<form action="change" method="post" enctype="multipart/form-data">
+			
+				<br>
+				<h4> Restaurant Informations:</h4>
+				
+				<label for="name">Name: <br></label>
+				<input type="text" id="name" name="name" value="<%=name%>"  required></input>
+				
+				<br><br>
+				
+				<label for="borough">Borough: <br></label>
+				<input type="text" id="borough" name="borough" value="<%=borough%>" ></input>
+				
+				<br><br>
+				
+				<label for="cuisine">Cuisine: <br></label>
+				<input type="text" id="cuisine" name="cuisine" value="<%=cuisine%>" ></input>
+
+				<br>
+				<br>
+				<h4> Address</h4>
+				
+				<label for="street">Street: <br></label>
+				<input type="text" id="street" name="street" value="<%=street%>"></input>
+				
+				<br><br>
+				
+				<label for="building">Building: <br></label>
+				<input type="text" id="building" name="building" value="<%=building%>" ></input>
+				
+				<br><br>
+				
+				<label for="zipcode">Zipcode: <br></label>
+				<input type="text" id="zipcode" name="zipcode" value="<%=zipcode%>" >
+				
+				<br><br>
+				
+				<label for="lon">GPS Longtitude Coordinates: <br></label>
+				<input type="text" id="lon" name="lon" value="<%=lon%>">
+				
+				<br><br>
+				
+				<label for="lat">GPS Lattitude Coordinates: <br></label>
+				<input type="text" id="lat" name="lat" value="<%=lat%>">
+				
+				<br>
+				<br>
+				<h4> Photo</h4>
+
+				&emsp;<input type="file" id="photo" name="filetoupload"  accept="image/*">				
+				
+				<br><br><br>
+				
+				<input type="hidden" name="_id" value="<%=_id%>">
+				<br>
+					<input type="submit" class="bt"  value="Save and exit">
+					
+					<a href='/display?_id=<%=_id%>' class="bt" >Go Back</a>
+			</form>
+            <img id="img1" src="https://media1.tenor.com/images/fa86bc7dd068015c339c0b40028e9389/tenor.gif?itemid=18545722"class="gif"></img>
+	</body>	
+</html>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+

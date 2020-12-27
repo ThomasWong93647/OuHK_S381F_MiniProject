@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<title>Grades </title>		  
+        <style>
+body, html {
+  margin: 0;
+}
+h1 {
+  font-size: 70px;
+}
+p {
+  font-size: 30px;
+}
+.image {
+  background-image: url("https://cdn.awwni.me/2bnsc.jpg");
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.bt {
+  background-color: #81f385;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  width: 40%;
+  opacity: 0.8;
+}
+
+.bt:hover {
+  opacity: 1;
+}
+
+</style>
+	</head>
+	
+	<body>
+    <div class="image">
+		<h1>You are now rating: <%=name%></h1><br>
+		<p>
+			<form action="rate" method="POST">
+				<h3 id="basic-addon1">Enter 1-10 to rate this restaurant, 10 is the best and 1 is the worst</h3>
+			</p>
+		
+			<p>
+				<input type="number"  name="score" min="1" max="10"  required>
+				<input type="hidden" name="_id" value="<%=_id%>">
+                <br>
+				<input type="submit" class="bt" value="Submit">
+			<br>
+			<a href='display?_id=<%=_id%>'class="bt" >Back</a>
+			</form>	
+		</p>
+        <div>
+	</body>
+</html>
+

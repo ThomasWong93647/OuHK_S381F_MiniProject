@@ -1,0 +1,95 @@
+<html>
+	<head>
+		<title>Create New Restaurant</title>		
+	</head>
+	<style>
+body, html {
+  margin: 0;
+}
+h1 {
+  font-size: 50px;
+}
+p {
+  font-size: 20px;
+}
+.image {
+  background-image: url("https://i.redd.it/bmdqsq56q9e51.png");
+  height: 135%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.bt {
+  background-color: #81f385;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  width: 40%;
+  opacity: 0.8;
+}
+
+.bt:hover {
+  opacity: 1;
+}
+
+</style>
+	<body>	
+		<div class="image">
+		<h1>Create a New Restaurant</h1><br>
+		
+		<form action="create" method="post" enctype="multipart/form-data">
+		
+			<p>Name</p>
+			<input type="text"  name="name"  required>
+            <br>
+			
+			<p>Borough</p>
+			<input type="text"  name="borough" >
+			<br>
+			
+			
+			<p>Cuisine</p>
+			<input type="text"  name="cuisine" >
+			<br>
+				
+			<p>Street</p>
+			<input type="text"  name="street" >
+			<br>
+				
+			<p>Building</p>  
+			<input type="text"  name="building" >
+			<br>
+				
+			<p>Zipcode</p>  
+			<input type="text"  name="zipcode" >
+			<br>
+
+			<p>GPS Coordinates (lon.)</p>
+			<input type="text"  name="lon" >
+			<br>	
+			
+			<p>GPS Coordinates (lat.)</p>  
+			<input type="text"  name="lat" >
+			<br>
+			
+			<p> Photo</p>
+			&emsp;<input type="file" name="filetoupload"  accept="image/*">				 
+			<p>
+			<br>
+			
+			<input type="submit" class="bt" value="Submit">
+			<br><br>
+			
+			<button onclick="window.location.href='/'"class="bt">Back to home</button>
+			<br><br>
+			
+			</p>
+			
+		</form>
+		
+		<div>	
+</body>	
+</html>
+

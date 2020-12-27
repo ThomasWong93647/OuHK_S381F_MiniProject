@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<title>Restaurant Rating System</title>
+        <style>
+body, html {
+  margin: 0;
+}
+h1 {
+  font-size: 100px;
+}
+p {
+  font-size: 30px;
+}
+.image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://i.redd.it/1tiyi5oiqh161.jpg");
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.bt {
+  background-color: #81f385;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  width: 40%;
+  opacity: 0.8;
+}
+
+.bt:hover {
+  opacity: 1;
+}
+
+</style>
+	</head>
+    
+	<body>
+    	<div class="image">
+			<h1 style="color:Turquoise;">Restaurants</h1>
+			<p style="color:white;">Glad to see you again, <%= name %>.
+			<br>Click the buttons below to Create new record or search for existing record.
+			</p>
+			
+			<p>
+			
+			<br>
+			<button onclick="window.location.href=href='/new'" class="bt">Create Record</button>
+			<br>
+            <br>
+ 			<button onclick="window.location.href=href='/search'" class="bt">Search Record</button>
+			<br>
+            <br>
+   			<button onclick="window.location.href=href='/logout'" class="bt">Log Out</button>
+			<br>
+			
+			</p>
+				<p style="color:LightSkyBlue;">
+					<% for(var i in data) { %>						
+								<a href="/display?_id=<%= data[i]._id%>"><%= data[i].name %></a>
+								<br>												
+					<% } %>
+				</p>
+                <br>
+             
+                </div>
+	</body>
+</html>
+<script>
+	let presentDate = new Date();
+		document.getElementById('dtText').innerHTML="Today is"+today;
+</script>
+
+

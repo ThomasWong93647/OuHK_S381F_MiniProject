@@ -1,0 +1,80 @@
+<html>
+	<head>
+		<title>Search Records</title>
+         <style>
+body, html {
+  margin: 0;
+}
+h1 {
+  font-size: 70px;
+}
+p {
+  font-size: 30px;
+}
+.image {
+  background-image: url("https://i.pinimg.com/736x/83/8e/21/838e2104cce5fb2c4ccc3da24b5d2fba.jpg");
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.bt {
+  background-color: #81f385;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  width: 40%;
+  opacity: 0.8;
+}
+
+.bt:hover {
+  opacity: 1;
+}
+
+</style>
+	</head>
+	
+	<body>
+    <div class="image">
+		<h1>Search Records</h1><br>
+	
+		<form class="form-inline" action="search" method="get">
+					<select name="opt"  id="inputGroupSelect03">
+					<option value="name" id="name">Name</option>
+					<option value="borough" id="borough">Borough</option>
+					<option value="cuisine" id="cuisine">Cuisine</option>							
+					</select>
+     				<br><br>
+					
+			<input type="text" name="keywords"  value="<%=keyword%>" placeholder="Keywords">
+					<br><br>
+				<button type="submit"class="bt">Search</button>
+	</form>
+				<button onclick="window.location.href='/'"class="bt">Back to home</button>
+	<p id="result"></p>	
+    <img id="img1" src="https://walfiegif.files.wordpress.com/2020/12/out-transparent-16.gif?w=371&h=225"></img>
+    <dir>
+	</body>
+</html>
+<script>
+	let results = <%-JSON.stringify(result)%>;
+	
+	if(results==""){
+		var j = "<h3>No Result</h3>";
+	}
+		else{
+			var j = "<table class='table table-hover'><thead><tr><th>"+results.length+" <%=opt%>s contain: <%=keyword%></th></tr></thead><tbody>";
+			
+			for(i in results){
+				j += "<tr><td><a href='display?_id="+results[i]._id+"'>"+results[i].name+"</a></td></tr>";
+			}
+		j += "</tbody></table>";
+	}
+	
+	document.getElementById("result").innerHTML = j;
+	document.getElementById("<%=opt%>").selected = "true";
+	
+</script>
+

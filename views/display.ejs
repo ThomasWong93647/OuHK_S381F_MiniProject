@@ -1,0 +1,114 @@
+<html>
+	<head>
+		<title><%=name%></title>			
+	
+<style>
+body, html {
+  margin: 0;
+}
+h1 {
+  font-size: 70px;
+}
+p {
+  font-size: 30px;
+}
+.image {
+  background-image: url("https://danbooru.donmai.us/data/sample/__minato_aqua_and_kagura_mea_hololive_and_1_more_drawn_by_marcellokito__sample-491ae967219bbb15ff2a64b7005f2390.jpg");
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.bt {
+  background-color: #81f385;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  width: 40%;
+  opacity: 0.8;
+}
+
+.bt:hover {
+  opacity: 1;
+}
+
+</style>
+</head>
+	<body onload="show()">
+    <div class="image">
+			<h1><%=name%></h1><br>
+			<p id="photo"></p>			
+			Borough: <%=borough%><br>
+			Cuisine: <%=cuisine%><br>
+			Street: <%=street%><br>
+			Building: <%=building%><br>
+			Zipcode: <%=zipcode%><br>
+			GPS: [<%=lon%> , <%=lat%>]<br>
+			Rating: <p id="rate"></p><br>
+			Created by: <%=owner%><br>
+			<p id="map"></p>
+			
+			<p>
+			
+			<br>
+			<button onclick="window.location.href='/rate?_id=<%=_id%>&name=<%=name%>'"class="bt">rate restaurants</button>
+			<br><br>
+			<button onclick="window.location.href='/change?_id=<%=_id%>'"class="bt">Edit restaurants</button>
+			<br><br>
+			<button onclick="window.location.href='/delete?_id=<%=_id%>'"class="bt">Delete restaurants</button>
+			<br><br>
+			<button onclick="window.location.href='/'"class="bt">Back to home</button>
+			<br>
+			
+			</p>
+            <div>
+	</body>
+</html>
+<script>
+	function show() 
+	{
+		let isPhoto = <%=showphoto%>;
+		let isMap = <%=havemap%>;
+		let rate = <%=haverate%>;					
+		
+		if (isPhoto) 
+		{
+			photo = '<img src="data:<%=mimetype%>;base64, <%=photo%>"><br>';
+		} 
+			else
+			{
+				photo = 'Photo missing, please add a photo.';
+			}
+		
+		if (isMap) 
+		{
+			gmap = '<a href="/gmap?lon=<%=lon%>&lat=<%=lat%>&name=<%=name%>">Google Map</a>';
+		} 
+			else
+			{
+				gmap = 'Map location missing, please add GPS coordinates:';
+			}
+		
+		if (rate) 
+		{
+			let grade = <%-JSON.stringify(grades)%>;
+			let j = "<ol>";
+			for(i in grade)
+			{
+				j += "<li>"+grade[i].score;
+				j += " ("+grade[i].user+")</li>";	
+			}
+			j += "</ol>";
+		}
+			else
+			{
+			let j = "";
+			}
+		document.getElementById("photo").innerHTML = photo;
+		document.getElementById("map").innerHTML = gmap;
+		document.getElementById("rate").innerHTML = j;
+	}
+</script>
+
