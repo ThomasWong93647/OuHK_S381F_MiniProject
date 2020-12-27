@@ -143,6 +143,7 @@ app.post('/login',urlencodedParser,function(req,res)
       db.collection('user').find({username:req.body.username}, function(err, user) 
       {
 		user.next(function(err, doc){
+      if (doc != null){
 			var username = doc['username'];
 			var password = doc['password'];
 			if(user ===null)
@@ -158,7 +159,9 @@ app.post('/login',urlencodedParser,function(req,res)
 			{	
 						res.set({"Content-Type":"text/html"});
 						res.status(404).end("<title>Error</title><h1>Error   Occur.</h1><a href='login'>Go Back</a>");
-					}
+					}}else{
+            res.redirect('/login');
+          }
 			});
 			
 		});
